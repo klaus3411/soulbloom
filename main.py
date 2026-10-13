@@ -137,20 +137,20 @@ def init_session_state():
 def get_flower_svg(color_hex):
     """Generates an inline SVG string for the emotion flower."""
     return f"""
-    <svg viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));">
-        <g transform="translate(50,50)">
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(0)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(45)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(90)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(135)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(180)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(225)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(270)" />
-            <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(315)" />
-            <circle cx="0" cy="0" r="8" fill="#d2b48c" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
-        </g>
-    </svg>
-    """
+<svg viewBox="0 0 100 100" width="100" height="100" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));">
+    <g transform="translate(50,50)">
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(0)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(45)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(90)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(135)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(180)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(225)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(270)" />
+        <path d="M0,0 C-20,-30 20,-30 0,0" fill="{color_hex}" stroke="rgba(0,0,0,0.1)" stroke-width="1" transform="rotate(315)" />
+        <circle cx="0" cy="0" r="8" fill="#d2b48c" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+    </g>
+</svg>
+"""
 
 def generate_soulpoem(feeling, color_name, sensation, api_key):
     """Calls Gemini API via REST to generate the poem."""
@@ -221,30 +221,30 @@ def render_garden():
         with col:
             svg_html = get_flower_svg(post["color"])
             card_html = f"""
-            <div class="garden-card">
-                <div style="height: 6px; background-color: {post["color"]}; width: calc(100% + 40px); margin: -20px -20px 15px -20px; border-radius: 20px 20px 0 0;"></div>
-                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
-                    <div style="flex-shrink: 0;">
-                        {svg_html}
-                    </div>
-                    <div>
-                        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px;">
-                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: {post["color"]}; margin-right: 5px;"></span>
-                            Emoción que {post["sensation"]}
-                        </div>
-                        <div style="font-size: 0.95rem; color: #666; font-style: italic;">
-                            "{post["feeling"]}"
-                        </div>
-                    </div>
-                </div>
-                <div class="poem-box">
-                    {post["poem"].replace(chr(10), '<br>')}
-                </div>
-                <div style="text-align: right; font-size: 0.7rem; color: #aaa; margin-top: 10px;">
-                    {post["date"]}
-                </div>
+<div class="garden-card">
+    <div style="height: 6px; background-color: {post["color"]}; width: calc(100% + 40px); margin: -20px -20px 15px -20px; border-radius: 20px 20px 0 0;"></div>
+    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+        <div style="flex-shrink: 0;">
+            {svg_html}
+        </div>
+        <div>
+            <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px;">
+                <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: {post["color"]}; margin-right: 5px;"></span>
+                Emoción que {post["sensation"]}
             </div>
-            """
+            <div style="font-size: 0.95rem; color: #666; font-style: italic;">
+                "{post["feeling"]}"
+            </div>
+        </div>
+    </div>
+    <div class="poem-box">
+        {post["poem"].replace(chr(10), '<br>')}
+    </div>
+    <div style="text-align: right; font-size: 0.7rem; color: #aaa; margin-top: 10px;">
+        {post["date"]}
+    </div>
+</div>
+"""
             st.markdown(card_html, unsafe_allow_html=True)
 
 def render_create():
@@ -254,13 +254,13 @@ def render_create():
     step = st.session_state.wizard_step
     colors = ['#2d4a3e' if i <= step else '#e0e0e0' for i in range(1, 5)]
     progress_html = f"""
-    <div style="display: flex; justify-content: center; gap: 10px; margin: 20px 0 40px 0;">
-        <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[0]};"></div>
-        <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[1]};"></div>
-        <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[2]};"></div>
-        <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[3]};"></div>
-    </div>
-    """
+<div style="display: flex; justify-content: center; gap: 10px; margin: 20px 0 40px 0;">
+    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[0]};"></div>
+    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[1]};"></div>
+    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[2]};"></div>
+    <div style="width: 12px; height: 12px; border-radius: 50%; background-color: {colors[3]};"></div>
+</div>
+"""
     st.markdown(progress_html, unsafe_allow_html=True)
 
     # Step 1: Sentir
@@ -342,22 +342,22 @@ def render_create():
         with col_flower:
             st.markdown(f"<div style='text-align: center; margin-top: 20px;'>{get_flower_svg(st.session_state.wizard_data['color_hex'])}</div>", unsafe_allow_html=True)
             st.markdown(f"""
-                <div style='background-color: #fcfaf5; padding: 10px; border-radius: 10px; border: 1px solid #e8e4d9; margin-top: 15px; text-align: center;'>
-                    <span style='font-size: 0.7rem; text-transform: uppercase; color: #888;'>Tu Semilla</span><br>
-                    <span style='font-style: italic; font-size: 0.9rem; color: #666;'>"{st.session_state.wizard_data['feeling'][:50]}..."</span>
-                </div>
-            """, unsafe_allow_html=True)
+<div style='background-color: #fcfaf5; padding: 10px; border-radius: 10px; border: 1px solid #e8e4d9; margin-top: 15px; text-align: center;'>
+    <span style='font-size: 0.7rem; text-transform: uppercase; color: #888;'>Tu Semilla</span><br>
+    <span style='font-style: italic; font-size: 0.9rem; color: #666;'>"{st.session_state.wizard_data['feeling'][:50]}..."</span>
+</div>
+""", unsafe_allow_html=True)
             
         with col_poem:
             st.markdown(f"""
-                <div style='position: relative; background-color: #fdfbf7; padding: 30px; border-radius: 15px; border: 1px solid rgba(210, 180, 140, 0.4); margin-top: 10px;'>
-                    <span style='position: absolute; top: 10px; left: 15px; font-size: 3rem; color: #d2b48c; opacity: 0.3; font-family: "Playfair Display", serif;'>“</span>
-                    <p style='font-family: "Playfair Display", serif; font-size: 1.3rem; line-height: 1.8; color: #4a4a4a; font-style: italic; position: relative; z-index: 10; margin: 0 10px;'>
-                        {st.session_state.wizard_data['poem'].replace(chr(10), '<br>')}
-                    </p>
-                    <span style='position: absolute; bottom: -10px; right: 15px; font-size: 3rem; color: #d2b48c; opacity: 0.3; font-family: "Playfair Display", serif;'>”</span>
-                </div>
-            """, unsafe_allow_html=True)
+<div style='position: relative; background-color: #fdfbf7; padding: 30px; border-radius: 15px; border: 1px solid rgba(210, 180, 140, 0.4); margin-top: 10px;'>
+    <span style='position: absolute; top: 10px; left: 15px; font-size: 3rem; color: #d2b48c; opacity: 0.3; font-family: "Playfair Display", serif;'>“</span>
+    <p style='font-family: "Playfair Display", serif; font-size: 1.3rem; line-height: 1.8; color: #4a4a4a; font-style: italic; position: relative; z-index: 10; margin: 0 10px;'>
+        {st.session_state.wizard_data['poem'].replace(chr(10), '<br>')}
+    </p>
+    <span style='position: absolute; bottom: -10px; right: 15px; font-size: 3rem; color: #d2b48c; opacity: 0.3; font-family: "Playfair Display", serif;'>”</span>
+</div>
+""", unsafe_allow_html=True)
             
         st.markdown("<br><br>", unsafe_allow_html=True)
         
